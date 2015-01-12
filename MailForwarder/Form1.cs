@@ -6,7 +6,6 @@ using System.Windows.Forms;
 using System.Data;
 using System.Threading;
 using Microsoft.Office.Interop.Outlook;
-using LNSea.CourtLink.Mail;
 
 namespace MailForwarder
 {
@@ -331,42 +330,42 @@ namespace MailForwarder
 
 		private void ForwardMail(MailItem item)
 		{
-			CourtLinkMail mail = new CourtLinkMail();
+            //CourtLinkMail mail = new CourtLinkMail();
 
-			try
-			{
-				mail.AppendFooter = false;
-				mail.EmailAddress = txtEmailAddress.Text;
-				mail.EmailSubject = ConstructSubject(item);
-				mail.EmailText = ConstructMailMessage(item);
-				mail.EmailFrom = "Josh.Hoffman@LexisNexis.com";
+            //try
+            //{
+            //    mail.AppendFooter = false;
+            //    mail.EmailAddress = txtEmailAddress.Text;
+            //    mail.EmailSubject = ConstructSubject(item);
+            //    mail.EmailText = ConstructMailMessage(item);
+            //    mail.EmailFrom = "Josh.Hoffman@LexisNexis.com";
 
-				mail.Send();
-			}
-			catch (System.Exception e)
-			{
-				MessageBox.Show(e.Message, "Error sending mail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
+            //    mail.Send();
+            //}
+            //catch (System.Exception e)
+            //{
+            //    MessageBox.Show(e.Message, "Error sending mail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
 		}
 
 		private void FullForward(MailItem item)
 		{
-			CourtLinkMail mail = new CourtLinkMail();
+            //CourtLinkMail mail = new CourtLinkMail();
 
-			try
-			{
-				mail.AppendFooter = false;
-				mail.EmailAddress = txtEmailAddress.Text;
-				mail.EmailSubject = item.Subject;
-				mail.EmailText = item.Body;
-				mail.EmailFrom = item.SenderEmailAddress;
+            //try
+            //{
+            //    mail.AppendFooter = false;
+            //    mail.EmailAddress = txtEmailAddress.Text;
+            //    mail.EmailSubject = item.Subject;
+            //    mail.EmailText = item.Body;
+            //    mail.EmailFrom = item.SenderEmailAddress;
 
-				mail.Send();
-			}
-			catch (System.Exception e)
-			{
-				MessageBox.Show(e.Message, "Error sending mail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
+            //    mail.Send();
+            //}
+            //catch (System.Exception e)
+            //{
+            //    MessageBox.Show(e.Message, "Error sending mail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
 		}
 
 		private void UpdateTxt(string Message)
