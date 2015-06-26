@@ -117,16 +117,15 @@ namespace HandyBar
 
 			SetTime();
 
-//			_Timer = new Timer();
-//			_Timer.Interval = 1000;
-//			_Timer.Tick += new EventHandler(_Timer_Tick);
-
-//			_Timer.Start();
+		    _Timer = new Timer { Interval = 60000 };
+			_Timer.Tick += _Timer_Tick;
+			_Timer.Start();
 		}
 
 		void _Timer_Tick(object sender, EventArgs e)
 		{
-			SetTime();
+//			SetTime();
+		    TopMost = TopMost;
 		}
 
 		private void Restore()
@@ -773,12 +772,18 @@ namespace HandyBar
 
 			string executableName = shortcut.Filename;
 			string args = shortcut.Args;
-
-			if (executableName != "")
-				Process.Start(executableName, args);
-			else
-				MessageBox.Show("Unable to launch application '" + executableName + "'.",
-					"Unable to launch application", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+		    if (System.IO.File.Exists(executableName))
+		    {
+		        var processInfo = new ProcessStartInfo(executableName, args) 
+                { 
+                    UseShellExecute = false,
+                    WorkingDirectory = Path.GetDirectoryName(executableName) 
+                };
+		        Process.Start(processInfo);
+		    }
+		    else
+		        MessageBox.Show("Unable to launch application '" + executableName + "'.",
+		            "Unable to launch application", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 		}
 
 		private void removeShortcutToolStripMenuItem_Click(object sender, EventArgs e)
