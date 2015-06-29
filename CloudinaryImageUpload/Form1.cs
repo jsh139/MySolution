@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Data.Common;
+using System.IO;
 using System.Net;
 using CloudinaryDotNet;
 using System;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using CloudinaryDotNet.Actions;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 
@@ -26,11 +28,6 @@ namespace CloudinaryImageUpload
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnGet_Click(object sender, EventArgs e)
         {
             const string sql = "select pkEmployee as 'Id', LastName, FirstName, Title, Department, City, pkImage as 'ImageId', publicId as 'Picture' " +
@@ -43,11 +40,14 @@ namespace CloudinaryImageUpload
         private void AddColumns(DataSet ds)
         {
             dataEmployee.Rows.Clear();
+            dataEmployee.Columns.Clear();
 
             foreach (DataColumn col in ds.Tables[0].Columns)
             {
                 dataEmployee.Columns.Add(col.ColumnName, col.ColumnName);
             }
+
+            dataEmployee.Columns.Add(new DataGridViewColumn { Name = "PublicId", Visible = false });
 
             foreach (DataRow row in ds.Tables[0].Rows)
             {
@@ -72,6 +72,8 @@ namespace CloudinaryImageUpload
                     gridRow.Cells.Add(new DataGridViewImageCell { Value = GetImage(row["Picture"].ToString()), ToolTipText = "Click to change image" });
                 }
 
+                gridRow.Cells.Add(new DataGridViewTextBoxCell { Value = row["Picture"] });
+
                 dataEmployee.Rows.Add(gridRow);
             }
 
@@ -83,8 +85,13 @@ namespace CloudinaryImageUpload
         private Image GetImage(string picture)
         {
             var wc = new WebClient();
-            var bytes = wc.DownloadData(string.Format("https://res.cloudinary.com/dwtoc6red/image/upload/w_58,h_58,c_fill,g_face/v1435241075/{0}.jpg", picture));
+            var url = _cloudinary.Api.UrlImgUp.Secure()
+                .Transform(new Transformation().Width(58).Height(58).Crop("fill").Gravity("face"))
+                .BuildUrl(picture);
+            
+            var bytes = wc.DownloadData(url);
             var ms = new MemoryStream(bytes);
+            
             return Image.FromStream(ms);
         }
 
@@ -100,18 +107,95 @@ namespace CloudinaryImageUpload
 
             if (column.Name == "Picture")
             {
-                var cell = row.Cells["Picture"];
+                var pkEmployee = Convert.ToInt64(row.Cells["Id"].Value);
+                var pkImage = row.Cells["ImageId"].Value == DBNull.Value ? (long?)null : Convert.ToInt64(row.Cells["ImageId"].Value);
 
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
-                    UploadImage(openFile.FileName);
+                    var result = UploadImage(openFile.FileName);
+
+                    if (result.StatusCode == HttpStatusCode.OK)
+                    {
+                        if (pkImage.HasValue)
+                        {
+                            UpdateImage(pkImage.Value, result);
+                            DeleteImage(row.Cells["PublicId"].Value.ToString());
+                        }
+                        else
+                        {
+                            InsertImage(pkEmployee, result);
+                        }
+
+                        btnGet_Click(sender, new EventArgs());
+                    }
                 }
             }
         }
 
-        private void UploadImage(string fileName)
+        private void DeleteImage(string publicId)
         {
-//            throw new NotImplementedException();
+            // Delete image from cloud
+            _cloudinary.DeleteResources(publicId);
+        }
+
+        private void UpdateImage(long pkImage, ImageUploadResult result)
+        {
+            // Update image record
+            var sql = string.Format(
+                "UPDATE [Image] " + 
+                "SET [publicId] = '{0}', [version] = {1}, [signature] = '{2}', [width] = {3}, [height] = {4}, [format] = '{5}', " +
+                "[bytes] = {6}, [url] = '{7}', [secureUrl] = '{8}', [fkSecUserModifiedBy] = 6235890, [dateModified] = GETUTCDATE() " +
+                "WHERE [pkImage] = {9}",
+                result.PublicId, result.Version, result.Signature, result.Width, result.Height,
+                result.Format, result.Length, result.Uri, result.SecureUri, pkImage);
+
+            _database.ExecuteNonQuery(new SqlCommand(sql));
+        }
+
+        private void InsertImage(long pkEmployee, ImageUploadResult result)
+        {
+            // Insert new image record, tie back to original employee
+            var sql = string.Format(
+                    "INSERT INTO [Image] ([publicId], [version], [signature], [width], [height], [format], [bytes], [url], [secureUrl], " +
+                    "[fkSecUserCreatedBy], [fkSecUserModifiedBy], [dateCreated], [dateModified]) " +
+                    "VALUES('{0}', {1}, '{2}', {3}, {4}, '{5}', {6}, '{7}', '{8}', 6235890, 6235890, GETUTCDate(), GETUTCDATE())",
+                    result.PublicId, result.Version, result.Signature, result.Width, result.Height, 
+                    result.Format, result.Length, result.Uri, result.SecureUri);
+
+            using (var conn = _database.CreateConnection())
+            {
+                conn.Open();
+                var uow = conn.BeginTransaction();
+
+                try
+                {
+                    _database.ExecuteNonQuery(new SqlCommand(sql), uow);
+
+                    var ds = _database.ExecuteDataSet(new SqlCommand("select @@IDENTITY as 'pkImage'"), uow);
+                    var pkImage = Convert.ToInt64(ds.Tables[0].Rows[0]["pkImage"]);
+
+                    sql = string.Format("UPDATE [Employee] SET fkPicture = {0} WHERE pkEmployee = {1}", pkImage,
+                        pkEmployee);
+                    _database.ExecuteNonQuery(new SqlCommand(sql), uow);
+
+                    uow.Commit();
+                }
+                catch (Exception)
+                {
+                    uow.Rollback();
+                    throw;
+                }
+            }
+        }
+
+        private ImageUploadResult UploadImage(string fileName)
+        {
+            var uploadParams = new ImageUploadParams
+            {
+                File = new FileDescription(fileName)
+            };
+
+            return _cloudinary.Upload(uploadParams);
         }
 
         private void Form1_Resize(object sender, EventArgs e)

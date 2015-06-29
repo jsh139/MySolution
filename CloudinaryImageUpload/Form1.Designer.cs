@@ -39,10 +39,11 @@
             this.dataEmployee.AllowUserToAddRows = false;
             this.dataEmployee.AllowUserToDeleteRows = false;
             this.dataEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataEmployee.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataEmployee.Location = new System.Drawing.Point(0, 0);
             this.dataEmployee.Name = "dataEmployee";
             this.dataEmployee.RowTemplate.Height = 24;
-            this.dataEmployee.Size = new System.Drawing.Size(982, 530);
+            this.dataEmployee.Size = new System.Drawing.Size(1010, 530);
             this.dataEmployee.TabIndex = 0;
             this.dataEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataEmployee_CellContentClick);
             // 
@@ -59,19 +60,18 @@
             // 
             // openFile
             // 
-            this.openFile.Filter = "Image files|*.jpg|All files|*.*";
+            this.openFile.Filter = "Image files|*.jpg;*.png;*.gif|All files|*.*";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 585);
+            this.ClientSize = new System.Drawing.Size(1010, 585);
             this.Controls.Add(this.btnGet);
             this.Controls.Add(this.dataEmployee);
-            this.MinimumSize = new System.Drawing.Size(1000, 630);
+            this.MinimumSize = new System.Drawing.Size(1028, 630);
             this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Picture Adder";
             this.Resize += new System.EventHandler(this.Form1_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dataEmployee)).EndInit();
             this.ResumeLayout(false);
