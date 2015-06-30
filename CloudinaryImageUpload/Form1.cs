@@ -1,15 +1,14 @@
-﻿using System.Data.Common;
-using System.IO;
-using System.Net;
-using CloudinaryDotNet;
-using System;
-using System.Data;
-using System.Drawing;
-using System.Data.SqlClient;
-using System.Windows.Forms;
+﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
+using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
+using System.Net;
+using System.Windows.Forms;
 
 namespace CloudinaryImageUpload
 {
@@ -85,8 +84,8 @@ namespace CloudinaryImageUpload
         private Image GetImage(string picture)
         {
             var wc = new WebClient();
-            var url = _cloudinary.Api.UrlImgUp.Secure()
-                .Transform(new Transformation().Width(58).Height(58).Crop("fill").Gravity("face"))
+            var url = _cloudinary.Api.UrlImgUp.Secure().CSubDomain(true)
+                .Transform(new Transformation().Width(58).Height(58).Crop("fill").Gravity("face").Border(1, "#B1B5BA"))
                 .BuildUrl(picture);
             
             var bytes = wc.DownloadData(url);
@@ -112,18 +111,18 @@ namespace CloudinaryImageUpload
 
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
-                    var result = UploadImage(openFile.FileName);
+                    var result = UploadImageToCloud(openFile.FileName);
 
                     if (result.StatusCode == HttpStatusCode.OK)
                     {
                         if (pkImage.HasValue)
                         {
-                            UpdateImage(pkImage.Value, result);
-                            DeleteImage(row.Cells["PublicId"].Value.ToString());
+                            UpdateImageInDb(pkImage.Value, result);
+                            DeleteImageFromCloud(row.Cells["PublicId"].Value.ToString());
                         }
                         else
                         {
-                            InsertImage(pkEmployee, result);
+                            InsertImageInDb(pkEmployee, result);
                         }
 
                         btnGet_Click(sender, new EventArgs());
@@ -132,13 +131,13 @@ namespace CloudinaryImageUpload
             }
         }
 
-        private void DeleteImage(string publicId)
+        private void DeleteImageFromCloud(string publicId)
         {
             // Delete image from cloud
             _cloudinary.DeleteResources(publicId);
         }
 
-        private void UpdateImage(long pkImage, ImageUploadResult result)
+        private void UpdateImageInDb(long pkImage, ImageUploadResult result)
         {
             // Update image record
             var sql = string.Format(
@@ -152,7 +151,7 @@ namespace CloudinaryImageUpload
             _database.ExecuteNonQuery(new SqlCommand(sql));
         }
 
-        private void InsertImage(long pkEmployee, ImageUploadResult result)
+        private void InsertImageInDb(long pkEmployee, ImageUploadResult result)
         {
             // Insert new image record, tie back to original employee
             var sql = string.Format(
@@ -188,7 +187,7 @@ namespace CloudinaryImageUpload
             }
         }
 
-        private ImageUploadResult UploadImage(string fileName)
+        private ImageUploadResult UploadImageToCloud(string fileName)
         {
             var uploadParams = new ImageUploadParams
             {
