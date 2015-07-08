@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataEmployee = new System.Windows.Forms.DataGridView();
             this.btnGet = new System.Windows.Forms.Button();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
+            this.mnuContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolDelete = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataEmployee)).BeginInit();
+            this.mnuContext.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataEmployee
@@ -62,6 +66,21 @@
             // 
             this.openFile.Filter = "Image files|*.jpg;*.png;*.gif|All files|*.*";
             // 
+            // mnuContext
+            // 
+            this.mnuContext.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.mnuContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolDelete});
+            this.mnuContext.Name = "mnuContext";
+            this.mnuContext.Size = new System.Drawing.Size(169, 28);
+            this.mnuContext.Text = "Actions";
+            // 
+            // toolDelete
+            // 
+            this.toolDelete.Name = "toolDelete";
+            this.toolDelete.Size = new System.Drawing.Size(168, 24);
+            this.toolDelete.Text = "Delete Image";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -71,9 +90,10 @@
             this.Controls.Add(this.dataEmployee);
             this.MinimumSize = new System.Drawing.Size(1028, 630);
             this.Name = "Form1";
-            this.Text = "Picture Adder";
+            this.Text = "Cloudinary Image Uploader";
             this.Resize += new System.EventHandler(this.Form1_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dataEmployee)).EndInit();
+            this.mnuContext.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -83,6 +103,8 @@
         private System.Windows.Forms.DataGridView dataEmployee;
         private System.Windows.Forms.Button btnGet;
         private System.Windows.Forms.OpenFileDialog openFile;
+        private System.Windows.Forms.ContextMenuStrip mnuContext;
+        private System.Windows.Forms.ToolStripMenuItem toolDelete;
     }
 }
 
