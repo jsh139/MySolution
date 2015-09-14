@@ -31,7 +31,11 @@ namespace PdfGenerator.Generators
 
             var pageOrientation = request.Orientation;
 
-            SetReportOptions(pdfConverter, pageOrientation);
+            var header = SetupHeader(pdfConverter, pageOrientation);
+            var footer = SetupFooter(pdfConverter, pageOrientation);
+            var includeHeader = !string.IsNullOrWhiteSpace(header.Html);
+
+            SetReportOptions(pdfConverter, pageOrientation, includeHeader);
 
             var baseUrl = request.BaseUrl;
 
@@ -50,8 +54,12 @@ namespace PdfGenerator.Generators
             {
                 pdfConverter.PageNumber = i;
 
-                SetupHeader(pdfConverter, pageOrientation);
-                SetupFooter(pdfConverter, pageOrientation, i, pdfConverter.PageCount);
+                if (includeHeader)
+                {
+                    AddHeaderToPage(pdfConverter, header);
+                }
+
+                AddFooterToPage(pdfConverter, footer, i, pdfConverter.PageCount);
 
                 pdfConverter.Flatten();
             }
@@ -73,7 +81,7 @@ namespace PdfGenerator.Generators
             return new Doc();
         }
 
-        private void SetReportOptions(Doc converter, PdfOrientation pageOrientation)
+        private void SetReportOptions(Doc converter, PdfOrientation pageOrientation, bool includeHeader)
         {
             converter.Units = UnitType.Points;
             converter.HtmlOptions.Engine = EngineType.Gecko;
@@ -94,8 +102,12 @@ namespace PdfGenerator.Generators
             }
 
             converter.Rect.Inset(HorizontalMargins, VerticalMargins);
-            converter.Rect.Top -= HeaderHeight + HeaderSpacing;
             converter.Rect.Bottom += FooterHeight + FooterSpacing;
+
+            if (includeHeader)
+            {
+                converter.Rect.Top -= HeaderHeight + HeaderSpacing;
+            }
         }
 
         private int GetHtmlViewerWidth(PdfOrientation pageOrientation)
@@ -104,7 +116,7 @@ namespace PdfGenerator.Generators
             return Convert.ToInt32(HtmlViewerWidthInches * multiplier);
         }
 
-        private void SetupHeader(Doc converter, PdfOrientation pageOrientation)
+        private HeaderFooterContext SetupHeader(Doc converter, PdfOrientation pageOrientation)
         {
             const string html = "<p><font face=\"Arial,Helvetica,sans-serif\" size=\"4\" color=\"#3e4652\">This is my header<br>Line 2<br>Line 3<br>Line 4<br>Line 5</font></p>";
             var width = PortraitLetterWidth;
@@ -116,16 +128,28 @@ namespace PdfGenerator.Generators
                 height = PortraitLetterWidth;
             }
 
-            converter.Rect.Left = HorizontalMargins;
-            converter.Rect.Bottom = height - (VerticalMargins + HeaderHeight);
-            converter.Rect.Right = width - HorizontalMargins;
-            converter.Rect.Top = height - VerticalMargins;
+            return new HeaderFooterContext
+            {
+                Left = HorizontalMargins,
+                Bottom = height - (VerticalMargins + HeaderHeight),
+                Right = width - HorizontalMargins,
+                Top = height - VerticalMargins,
+                Html = html,
+            };
+        }
 
-            converter.AddHtml(html);
+        private void AddHeaderToPage(Doc converter, HeaderFooterContext header)
+        {
+            converter.Rect.Left = header.Left;
+            converter.Rect.Bottom = header.Bottom;
+            converter.Rect.Right = header.Right;
+            converter.Rect.Top = header.Top;
+
+            converter.AddHtml(header.Html);
             converter.FrameRect();
         }
 
-        private void SetupFooter(Doc converter, PdfOrientation pageOrientation, int currentPage, int pageCount)
+        private HeaderFooterContext SetupFooter(Doc converter, PdfOrientation pageOrientation)
         {
             const string html = "<p align=\"right\"><font face=\"Arial,Helvetica,sans-serif\" size=\"4\" color=\"#3e4652\">Page &p; of &P;<br>Line 2<br>Line 3<br>Line 4<br>Line 5</font></p>";
             var width = PortraitLetterWidth;
@@ -135,13 +159,34 @@ namespace PdfGenerator.Generators
                 width = PortraitLetterHeight;
             }
 
-            converter.Rect.Left = HorizontalMargins;
-            converter.Rect.Bottom = VerticalMargins;
-            converter.Rect.Right = width - HorizontalMargins;
-            converter.Rect.Top = VerticalMargins + FooterHeight;
+            return new HeaderFooterContext
+            {
+                Left = HorizontalMargins,
+                Bottom = VerticalMargins,
+                Right = width - HorizontalMargins,
+                Top = VerticalMargins + FooterHeight,
+                Html = html,
+            };
+        }
 
-            converter.AddHtml(html.Replace("&p;", currentPage.ToString()).Replace("&P;", pageCount.ToString()));
+        private void AddFooterToPage(Doc converter, HeaderFooterContext footer, int currentPage, int pageCount)
+        {
+            converter.Rect.Left = footer.Left;
+            converter.Rect.Bottom = footer.Bottom;
+            converter.Rect.Right = footer.Right;
+            converter.Rect.Top = footer.Top;
+
+            converter.AddHtml(footer.Html.Replace("&p;", currentPage.ToString()).Replace("&P;", pageCount.ToString()));
             converter.FrameRect();
+        }
+
+        internal class HeaderFooterContext
+        {
+            public double Left { get; set; }
+            public double Bottom { get; set; }
+            public double Right { get; set; }
+            public double Top { get; set; }
+            public string Html { get; set; }
         }
     }
 }
