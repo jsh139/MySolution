@@ -43,12 +43,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.grpPdfEngine = new System.Windows.Forms.GroupBox();
+            this.rdoHiQ = new System.Windows.Forms.RadioButton();
+            this.rdoExpert = new System.Windows.Forms.RadioButton();
             this.rdoAbc = new System.Windows.Forms.RadioButton();
             this.rdoDynamicPdf = new System.Windows.Forms.RadioButton();
             this.rdoNReco = new System.Windows.Forms.RadioButton();
             this.rdoEvo = new System.Windows.Forms.RadioButton();
-            this.rdoExpert = new System.Windows.Forms.RadioButton();
-            this.rdoHiQ = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.grpPdfEngine.SuspendLayout();
@@ -208,13 +208,35 @@
             this.grpPdfEngine.TabStop = false;
             this.grpPdfEngine.Text = "Conversion Engine";
             // 
+            // rdoHiQ
+            // 
+            this.rdoHiQ.AutoSize = true;
+            this.rdoHiQ.Location = new System.Drawing.Point(7, 157);
+            this.rdoHiQ.Name = "rdoHiQ";
+            this.rdoHiQ.Size = new System.Drawing.Size(78, 21);
+            this.rdoHiQ.TabIndex = 5;
+            this.rdoHiQ.Text = "HiQ Pdf";
+            this.rdoHiQ.UseVisualStyleBackColor = true;
+            // 
+            // rdoExpert
+            // 
+            this.rdoExpert.AutoSize = true;
+            this.rdoExpert.Location = new System.Drawing.Point(7, 130);
+            this.rdoExpert.Name = "rdoExpert";
+            this.rdoExpert.Size = new System.Drawing.Size(94, 21);
+            this.rdoExpert.TabIndex = 4;
+            this.rdoExpert.Text = "Expert Pdf";
+            this.rdoExpert.UseVisualStyleBackColor = true;
+            // 
             // rdoAbc
             // 
             this.rdoAbc.AutoSize = true;
+            this.rdoAbc.Checked = true;
             this.rdoAbc.Location = new System.Drawing.Point(7, 103);
             this.rdoAbc.Name = "rdoAbc";
             this.rdoAbc.Size = new System.Drawing.Size(78, 21);
             this.rdoAbc.TabIndex = 3;
+            this.rdoAbc.TabStop = true;
             this.rdoAbc.Text = "Abc Pdf";
             this.rdoAbc.UseVisualStyleBackColor = true;
             // 
@@ -241,34 +263,12 @@
             // rdoEvo
             // 
             this.rdoEvo.AutoSize = true;
-            this.rdoEvo.Checked = true;
             this.rdoEvo.Location = new System.Drawing.Point(7, 22);
             this.rdoEvo.Name = "rdoEvo";
             this.rdoEvo.Size = new System.Drawing.Size(53, 21);
             this.rdoEvo.TabIndex = 0;
-            this.rdoEvo.TabStop = true;
             this.rdoEvo.Text = "Evo";
             this.rdoEvo.UseVisualStyleBackColor = true;
-            // 
-            // rdoExpert
-            // 
-            this.rdoExpert.AutoSize = true;
-            this.rdoExpert.Location = new System.Drawing.Point(7, 130);
-            this.rdoExpert.Name = "rdoExpert";
-            this.rdoExpert.Size = new System.Drawing.Size(94, 21);
-            this.rdoExpert.TabIndex = 4;
-            this.rdoExpert.Text = "Expert Pdf";
-            this.rdoExpert.UseVisualStyleBackColor = true;
-            // 
-            // rdoHiQ
-            // 
-            this.rdoHiQ.AutoSize = true;
-            this.rdoHiQ.Location = new System.Drawing.Point(7, 157);
-            this.rdoHiQ.Name = "rdoHiQ";
-            this.rdoHiQ.Size = new System.Drawing.Size(78, 21);
-            this.rdoHiQ.TabIndex = 5;
-            this.rdoHiQ.Text = "HiQ Pdf";
-            this.rdoHiQ.UseVisualStyleBackColor = true;
             // 
             // FrmPdfGenerator
             // 

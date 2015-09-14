@@ -31,13 +31,12 @@ namespace PdfGenerator.Generators
             var pdfConverter = GetPdfConverter();
 
             var pageOrientation = request.Orientation == PdfOrientation.Portrait ? PdfPageOrientation.Portrait : PdfPageOrientation.Landscape;
+            var baseUrl = request.BaseUrl;
 
             SetReportOptions(pdfConverter, pageOrientation);
 
             SetupHeader(pdfConverter, pageOrientation);
-            SetupFooter(pdfConverter, pageOrientation);
-
-            var baseUrl = request.BaseUrl;
+            SetupFooter(pdfConverter, pageOrientation, baseUrl);
 
             var html = HtmlTools.GetHtml(request.ConversionUrl);
 
@@ -101,22 +100,18 @@ namespace PdfGenerator.Generators
             //pdfConverter.PdfHeaderOptions.AddElement(headerHtml);
         }
 
-        private void SetupFooter(HtmlToPdf pdfConverter, PdfPageOrientation pageOrientation)
+        private void SetupFooter(HtmlToPdf pdfConverter, PdfPageOrientation pageOrientation, string baseUrl)
         {
-            //const string html = "<div style=\"width: 100%; font-size: 16px; font-family: Arial,Helvetica,sans-serif; color: #3e4652;\"><span style=\"float:right;\">Page &p; of &P;</span></div>";
+            const string html = "<div style=\"width: 100%; font-size: 16px; font-family: Arial,Helvetica,sans-serif; color: #3e4652;\"><span style=\"float:right;\">Page &p; of &P;</span></div>";
 
-            //pdfConverter.PdfDocumentOptions.ShowFooter = true;
-            //pdfConverter.PdfDocumentOptions.BottomSpacing = FooterSpacing;
-            //pdfConverter.PdfFooterOptions.FooterHeight = FooterHeight;
+            pdfConverter.Document.Footer.Enabled = true;
+            pdfConverter.Document.BottomPadding = FooterSpacing;
+            pdfConverter.Document.Footer.Height = FooterHeight;
 
-            //var pageWidth = pageOrientation == PdfPageOrientation.Portrait ? PortraitPageWidth : LandscapePageWidth;
+            var pageWidth = pageOrientation == PdfPageOrientation.Portrait ? PortraitPageWidth : LandscapePageWidth;
+            var footerHtml = new PdfHtml(0, 0, html, baseUrl) { BrowserWidth = pageWidth };
 
-            //var footerHtmlWithPageNumbers = new HtmlToPdfVariableElement(0, 0, html, null)
-            //{
-            //    HtmlViewerWidth = pageWidth
-            //};
-
-            //pdfConverter.PdfFooterOptions.AddElement(footerHtmlWithPageNumbers);
+            pdfConverter.Document.Footer.Layout(footerHtml);
         }
     }
 }

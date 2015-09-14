@@ -1,6 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Net;
 using EvoPdf;
 
 namespace PdfGenerator.Generators
