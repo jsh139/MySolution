@@ -34,7 +34,7 @@
   <ItemGroup>
     <Reference Include="ABCpdf, Version=10.1.0.3, Culture=neutral, PublicKeyToken=a7a0b3f5184f2169, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files\WebSupergoo\ABCpdf .NET 10.1 x64\ABCpdf.dll</HintPath>
+      <HintPath>lib\ABCpdf.dll</HintPath>
     </Reference>
     <Reference Include="ceTe.DynamicPDF.40">
       <HintPath>lib\ceTe.DynamicPDF.40.dll</HintPath>
@@ -114,6 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
