@@ -97,6 +97,9 @@ namespace PdfGenerator.Generators
             converter.HtmlOptions.HostWebBrowser = false;
             converter.HtmlOptions.AdjustLayout = false;
 
+            converter.HtmlOptions.BreakMethod = HtmlBreakMethodType.MaximumCohesion;
+//            converter.HtmlOptions.BreakZoneSize = 25;
+
             if (pageOrientation == PdfOrientation.Landscape)
             {
                 converter.Transform.Rotate(90, converter.MediaBox.Left, converter.MediaBox.Bottom);

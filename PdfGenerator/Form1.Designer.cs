@@ -60,7 +60,7 @@
             this.txtReportUrl.Name = "txtReportUrl";
             this.txtReportUrl.Size = new System.Drawing.Size(448, 22);
             this.txtReportUrl.TabIndex = 0;
-            this.txtReportUrl.Text = "http://localhost:8082/Test/TabularReport-BrokenHeadings.html";
+            this.txtReportUrl.Text = "http://localhost:8082/Test/Report.html";
             // 
             // txtBaseUrl
             // 
