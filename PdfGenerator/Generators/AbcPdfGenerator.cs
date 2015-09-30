@@ -7,12 +7,12 @@ namespace PdfGenerator.Generators
 {
     public class AbcPdfGenerator : IPdfGenerator
     {
-        private const float HeaderHeight = 60;
-        private const float HeaderSpacing = 3;
+        private const float HeaderHeight = 61;
+        private const float HeaderSpacing = 2;
 
         private const float FooterHeight = 60;
         private const float FooterSpacing = 3;
-
+        
         // Top and bottom margins currently set to 1/2 inch
         private const float VerticalMargins = 36f;
 
@@ -98,7 +98,7 @@ namespace PdfGenerator.Generators
             converter.HtmlOptions.AdjustLayout = false;
 
             converter.HtmlOptions.BreakMethod = HtmlBreakMethodType.MaximumCohesion;
-//            converter.HtmlOptions.BreakZoneSize = 25;
+//            converter.HtmlOptions.BreakZoneSize = 90;
 
             if (pageOrientation == PdfOrientation.Landscape)
             {
@@ -152,7 +152,9 @@ namespace PdfGenerator.Generators
                 Right = width - HorizontalMargins,
                 Top = height - VerticalMargins,
 //                Html = GetHtml("DataViz/Viewer", "Header"),
-                Html = "Hello, this is some sample HEADER TEXT",
+                Html = "<style>body { margin: 0; padding: 0; }</style> " +
+                    "<div style=\"width: 100%; font-size: 12px; font-family: Arial,Helvetica,sans-serif; color: #3e4652; \">" +
+                    "Copyright 2015 Sungard Availability Services<br>All rights reserved<br>Line 3<br>Line 4<br>Line 5<br>Line 6</div>",
             };
         }
 
@@ -192,7 +194,9 @@ namespace PdfGenerator.Generators
                 Right = width - HorizontalMargins,
                 Top = VerticalMargins + FooterHeight,
 //                Html = GetHtml("DataViz/Viewer", "Footer"),
-                Html = "Hello, this is some sample FOOTER TEXT",
+                Html = "<style>body { margin: 0; padding: 0; }</style> " +
+                    "<div style=\"width: 100%; font-size: 12px; font-family: Arial,Helvetica,sans-serif; color: #3e4652; \">" +
+                    "Copyright 2015 Sungard Availability Services<br>All rights reserved<br>Line 3<br>Line 4<br>Line 5<br>Line 6</div>",
             };
         }
 
@@ -218,7 +222,7 @@ namespace PdfGenerator.Generators
             if (!forExport)
             {
                 // Add the page number
-                var pageHtml = string.Format("<p align=\"right\"><font face=\"Arial,Helvetica,sans-serif\" size=\"3\" color=\"#3e4652\">Page {0} of {1}</font></p>",
+                var pageHtml = string.Format("<p align=\"right\"><font face=\"Arial,Helvetica,sans-serif\" size=\"2\" color=\"#3e4652\">Page {0} of {1}</font></p>",
                                              currentPage, pageCount);
                 converter.Rect.Left = converter.Rect.Right;
                 converter.Rect.Bottom = footer.Bottom;

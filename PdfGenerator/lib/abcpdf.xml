@@ -4073,6 +4073,9 @@
     <member name="P:WebSupergoo.ABCpdf10.XSaveOptions.Incremental">
       <summary>Whether to use incremental update to preserve the validity of signature fields.</summary>
     </member>
+    <member name="P:WebSupergoo.ABCpdf10.XSaveOptions.CompressObjects">
+      <summary>Whether to use object stream compression to reduce the size of documents.</summary>
+    </member>
     <member name="P:WebSupergoo.ABCpdf10.XSaveOptions.IDUpdate">
       <summary>Whether to update the file version identifier.</summary>
     </member>
