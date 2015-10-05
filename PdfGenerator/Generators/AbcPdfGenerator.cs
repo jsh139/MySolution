@@ -94,11 +94,6 @@ namespace PdfGenerator.Generators
             converter.HtmlOptions.BrowserWidth = GetHtmlViewerWidth(pageOrientation);
             converter.HtmlOptions.ImprovePageBreakAvoid = true;
             converter.HtmlOptions.Timeout = PageTimeout;
-            converter.HtmlOptions.HostWebBrowser = false;
-            converter.HtmlOptions.AdjustLayout = false;
-
-            converter.HtmlOptions.BreakMethod = HtmlBreakMethodType.MaximumCohesion;
-//            converter.HtmlOptions.BreakZoneSize = 90;
 
             if (pageOrientation == PdfOrientation.Landscape)
             {
