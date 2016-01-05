@@ -10,7 +10,7 @@ namespace PdfGenerator
 {
     public partial class FrmPdfGenerator : Form
     {
-        private const string PdfViewer = "C:\\Program Files (x86)\\Nuance\\PDF Professional 8\\bin\\GaaihoDoc.exe";
+        private const string PdfViewer = @"C:\Program Files (x86)\Nuance\Power PDF\bin\NuancePDF.exe";
         private Dictionary<RadioButton, IPdfGenerator> _pdfGeneratorMap; 
 
         public FrmPdfGenerator()
