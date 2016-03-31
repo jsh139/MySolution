@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnDoIt = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labDatabase = new System.Windows.Forms.ToolStripStatusLabel();
@@ -41,7 +42,12 @@
             this.txtIterations = new System.Windows.Forms.TextBox();
             this.txtLog = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkDatabase = new System.Windows.Forms.CheckBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnDoIt
@@ -144,6 +150,7 @@
             // 
             // txtLog
             // 
+            this.txtLog.ContextMenuStrip = this.contextMenuStrip1;
             this.txtLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLog.Location = new System.Drawing.Point(0, 220);
             this.txtLog.Name = "txtLog";
@@ -153,11 +160,37 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.chkDatabase);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(582, 220);
             this.panel1.TabIndex = 9;
+            // 
+            // chkDatabase
+            // 
+            this.chkDatabase.AutoSize = true;
+            this.chkDatabase.Location = new System.Drawing.Point(199, 129);
+            this.chkDatabase.Name = "chkDatabase";
+            this.chkDatabase.Size = new System.Drawing.Size(120, 21);
+            this.chkDatabase.TabIndex = 0;
+            this.chkDatabase.Text = "Use Database";
+            this.chkDatabase.UseVisualStyleBackColor = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(113, 28);
+            // 
+            // clearToolStripMenuItem
+            // 
+            this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.clearToolStripMenuItem.Text = "&Clear";
+            this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -181,6 +214,9 @@
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,6 +237,9 @@
         private System.Windows.Forms.TextBox txtIterations;
         private System.Windows.Forms.RichTextBox txtLog;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox chkDatabase;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
     }
 }
 
