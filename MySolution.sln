@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfShrinker", "PdfShrinker\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnderPressure", "UnderPressure\UnderPressure.csproj", "{55A2FF8F-3318-42DE-B75B-22FF43D60CB5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRChat", "SignalRChat\SignalRChat.csproj", "{8D071694-E214-427E-B18A-5CFD4DB8B11A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{55A2FF8F-3318-42DE-B75B-22FF43D60CB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55A2FF8F-3318-42DE-B75B-22FF43D60CB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55A2FF8F-3318-42DE-B75B-22FF43D60CB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D071694-E214-427E-B18A-5CFD4DB8B11A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D071694-E214-427E-B18A-5CFD4DB8B11A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D071694-E214-427E-B18A-5CFD4DB8B11A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D071694-E214-427E-B18A-5CFD4DB8B11A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
