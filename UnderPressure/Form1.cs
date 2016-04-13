@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
+//using Newtonsoft.Json;
 using SunGardAS.CMS.Domain.DataStore.Customer;
 using SunGardAS.CMS.Domain.DataStore.IncidentManagement;
 using SunGardAS.CMS.Domain.IncidentManagement.EventDefinition;
@@ -51,8 +52,21 @@ namespace UnderPressure
             {
                 var formatter = new BinaryFormatter();
                 formatter.Serialize(s, eventDef);
-                txtLog.AppendText(string.Format("Total time {0}. Object length {1}\r\n\r\n", time, s.Length));
+                txtLog.AppendText(string.Format("Total time {0}. Object length {1}\r\n", time, s.Length));
             }
+
+            //var settings = new JsonSerializerSettings
+            //{
+            //    TypeNameHandling = TypeNameHandling.Objects,
+            //};
+            //var eventDefString = JsonConvert.SerializeObject(eventDef, typeof(EventDefinition), settings);
+
+            //then = DateTime.Now;
+
+            //eventDef = (EventDefinition)JsonConvert.DeserializeObject(eventDefString, typeof(EventDefinition), settings);
+
+            //time = DateTime.Now - then;
+            //txtLog.AppendText(string.Format("Deserialization time {0}.\r\n\r\n", time));
 
             labMessage.Text = "Select an event...";
             Cursor.Current = Cursors.Default;

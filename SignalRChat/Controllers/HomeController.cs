@@ -31,5 +31,10 @@ namespace SignalRChat.Controllers
         {
             return View();
         }
+
+        public ActionResult StockTicker()
+        {
+            return View();
+        }
     }
 }
