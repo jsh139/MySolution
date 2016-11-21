@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnderPressure", "UnderPress
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRChat", "SignalRChat\SignalRChat.csproj", "{8D071694-E214-427E-B18A-5CFD4DB8B11A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoSomething", "DoSomething\DoSomething.csproj", "{1C51A408-1A0B-4BAC-B528-CA62E42EEC57}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{8D071694-E214-427E-B18A-5CFD4DB8B11A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D071694-E214-427E-B18A-5CFD4DB8B11A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D071694-E214-427E-B18A-5CFD4DB8B11A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C51A408-1A0B-4BAC-B528-CA62E42EEC57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C51A408-1A0B-4BAC-B528-CA62E42EEC57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C51A408-1A0B-4BAC-B528-CA62E42EEC57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C51A408-1A0B-4BAC-B528-CA62E42EEC57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

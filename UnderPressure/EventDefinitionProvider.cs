@@ -8,7 +8,7 @@
 
 using SunGardAS.Caching.Ncache.CacheItemGeneration;
 using SunGardAS.Caching.NCache;
-using SunGardAS.CMS.Domain.DataStore.IncidentManagement;
+using SunGardAS.CMS.Domain.DataStore.IncidentManagement.EventDefinition;
 using SunGardAS.CMS.Domain.IncidentManagement.EventDefinition;
 
 namespace UnderPressure
