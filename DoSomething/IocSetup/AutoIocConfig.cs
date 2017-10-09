@@ -31,7 +31,7 @@ namespace DoSomething.IocSetup
             var container = new WindsorContainer();
 
             container.Install(new ServicesInstaller());
-            container.Register(Component.For<IClientConfigurationValueProvider>().ImplementedBy<ConfigurationValueProvider>());
+            //container.Register(Component.For<IClientConfigurationValueProvider>().ImplementedBy<ConfigurationValueProvider>());
 
             return new WindsorDependencyInjectionContainer(container);
         }

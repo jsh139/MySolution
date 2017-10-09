@@ -39,6 +39,30 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\..\..\..\..\..\git\GIT_Assurance\DEV\lib\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Amazon, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Amazon.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Apple, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Apple.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Blackberry, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Blackberry.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Core, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Firefox, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Firefox.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Google, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Windows, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="SunGardAS">
       <HintPath>..\..\..\..\..\..\git\GIT_Assurance\DEV\bin\SunGardAS.dll</HintPath>
     </Reference>
@@ -70,7 +94,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigurationValueProvider.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +115,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
