@@ -1,20 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Reflection;
-using Microsoft.Office.Interop.MSProject;
+﻿using Microsoft.Office.Interop.MSProject;
 
 namespace OfficeDocToPdf.Converters
 {
-    public class ProjectDocConverter : IDocConverter
+    public class ProjectDocConverter : DocConverter, IDocConverter
     {
-        private readonly List<string> _extensions = new List<string>
-        {
-            ".mpp",
-        };
-
-        public bool CanConvert(string fileExtension)
-        {
-            return _extensions.Contains(fileExtension);
-        }
+        protected override string ExtensionList { get; } = "ProjectExtensionList";
 
         public ConversionResult Convert(object inputFile, object outputFile)
         {

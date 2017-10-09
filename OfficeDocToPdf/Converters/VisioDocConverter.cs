@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.Office.Interop.Visio;
 
 namespace OfficeDocToPdf.Converters
 {
-    public class VisioDocConverter : IDocConverter
+    public class VisioDocConverter : DocConverter, IDocConverter
     {
-        private readonly List<string> _extensions = new List<string>
-        {
-            ".vsd", ".vdx", 
-        };
-
-        public bool CanConvert(string fileExtension)
-        {
-            return _extensions.Contains(fileExtension);
-        }
+        protected override string ExtensionList { get; } = "VisioExtensionList";
 
         public ConversionResult Convert(object inputFile, object outputFile)
         {

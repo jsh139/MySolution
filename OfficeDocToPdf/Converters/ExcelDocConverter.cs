@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.Office.Interop.Excel;
 
 namespace OfficeDocToPdf.Converters
 {
-    public class ExcelDocConverter : IDocConverter
+    public class ExcelDocConverter : DocConverter, IDocConverter
     {
-        private readonly List<string> _extensions = new List<string>
-        {
-            ".xls", ".xlsx", ".xlsm", ".xlsb", ".csv",
-        };
-
-        public bool CanConvert(string fileExtension)
-        {
-            return _extensions.Contains(fileExtension);
-        }
+        protected override string ExtensionList { get; } = "ExcelExtensionList";
 
         public ConversionResult Convert(object inputFile, object outputFile)
         {

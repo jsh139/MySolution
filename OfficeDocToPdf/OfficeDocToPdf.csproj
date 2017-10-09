@@ -51,6 +51,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -62,6 +63,7 @@
   <ItemGroup>
     <Compile Include="ConversionResult.cs" />
     <Compile Include="Converters\ConverterFactory.cs" />
+    <Compile Include="Converters\DocConverter.cs" />
     <Compile Include="Converters\ExcelDocConverter.cs" />
     <Compile Include="Converters\IDocConverter.cs" />
     <Compile Include="Converters\PowerPointDocConverter.cs" />

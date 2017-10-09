@@ -1,21 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.Office.Core;
 using Microsoft.Office.Interop.PowerPoint;
 
 namespace OfficeDocToPdf.Converters
 {
-    public class PowerPointDocConverter : IDocConverter
+    public class PowerPointDocConverter : DocConverter, IDocConverter
     {
-        private readonly List<string> _extensions = new List<string>
-        {
-            ".ppt", ".pptx", ".pptm",
-        };
-
-        public bool CanConvert(string fileExtension)
-        {
-            return _extensions.Contains(fileExtension);
-        }
+        protected override string ExtensionList { get; } = "PowerPointExtensionList";
 
         public ConversionResult Convert(object inputFile, object outputFile)
         {

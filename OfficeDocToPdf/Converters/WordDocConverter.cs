@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.Office.Interop.Word;
 
 namespace OfficeDocToPdf.Converters
 {
-    public class WordDocConverter : IDocConverter
+    public class WordDocConverter : DocConverter, IDocConverter
     {
-        private readonly List<string> _extensions = new List<string>
-        {
-            ".doc", ".docx", ".txt", ".rtf", ".docm",
-        };
-
-        public bool CanConvert(string fileExtension)
-        {
-            return _extensions.Contains(fileExtension);
-        }
+        protected override string ExtensionList { get; } = "WordExtensionList";
 
         public ConversionResult Convert(object inputFile, object outputFile)
         {
