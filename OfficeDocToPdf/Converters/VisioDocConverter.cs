@@ -5,13 +5,17 @@ namespace OfficeDocToPdf.Converters
 {
     public class VisioDocConverter : DocConverter, IDocConverter
     {
+        private const short IdNo = 7;
         protected override string ExtensionList { get; } = "VisioExtensionList";
 
         public ConversionResult Convert(object inputFile, object outputFile)
         {
             Document vsdDoc = null;
             //Start application
-            var msVisioDoc = new InvisibleApp();
+            var msVisioDoc = new InvisibleApp {AlertResponse = IdNo};
+
+            //object[] args = { IdNo };
+            //_visioAppManager.AppType.InvokeMember("AlertResponse", BindingFlags.SetProperty, null, _visioAppManager.App, args);
 
             try
             {

@@ -1,4 +1,9 @@
-﻿using Microsoft.Office.Interop.MSProject;
+﻿using System;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Threading;
+using Microsoft.Office.Interop.MSProject;
+using Exception = Microsoft.Office.Interop.MSProject.Exception;
 
 namespace OfficeDocToPdf.Converters
 {
@@ -9,11 +14,22 @@ namespace OfficeDocToPdf.Converters
         public ConversionResult Convert(object inputFile, object outputFile)
         {
             //Start application
-            var msProjectDoc = new Application { Visible = false };
+//            var msProjectDoc = new Application { Visible = false };
+            var msProjectDoc = new Application();
 
             try
             {
-                msProjectDoc.FileOpen(inputFile, true, null, null, null, null, true);
+                try
+                {
+                    Thread.Sleep(1000);
+                    msProjectDoc.FileOpen(inputFile, true, Missing.Value, Missing.Value, Missing.Value, Missing.Value, true);
+                }
+                catch (COMException)
+                {
+                    Thread.Sleep(1000);
+                    msProjectDoc.FileOpen(inputFile, true, Missing.Value, Missing.Value, Missing.Value, Missing.Value, true);
+                }
+
                 msProjectDoc.DocumentExport(outputFile, PjDocExportType.pjPDF, false, false, false);
             }
             catch (System.Exception e)
