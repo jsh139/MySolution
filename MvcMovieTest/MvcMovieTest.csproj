@@ -74,14 +74,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MvcMovie\MvcMovie.csproj">
-      <Project>{265edbdb-44cc-463a-b07b-d69ba1c50b51}</Project>
-      <Name>MvcMovie</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MvcMovie\MvcMovie.csproj">
+      <Project>{265EDBDB-44CC-463A-B07B-D69BA1C50B51}</Project>
+      <Name>MvcMovie</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
