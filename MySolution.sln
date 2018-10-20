@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeDocToPdf", "OfficeDocToPdf\OfficeDocToPdf.csproj", "{415D9EB3-4471-44A5-82B0-B8A6CA1FCF03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemHealthCheck", "SystemHealthCheck\SystemHealthCheck.csproj", "{DADA4088-A42D-497C-A26D-B0013D87A391}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -116,6 +118,10 @@ Global
 		{415D9EB3-4471-44A5-82B0-B8A6CA1FCF03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{415D9EB3-4471-44A5-82B0-B8A6CA1FCF03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{415D9EB3-4471-44A5-82B0-B8A6CA1FCF03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DADA4088-A42D-497C-A26D-B0013D87A391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DADA4088-A42D-497C-A26D-B0013D87A391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DADA4088-A42D-497C-A26D-B0013D87A391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DADA4088-A42D-497C-A26D-B0013D87A391}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,68 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "System Health Check";
+}
+
+<link rel="stylesheet" href="~/css/index.css" />
+
+<div class="page-heading">System Information</div>
+
+<div class="clear" />
+
+<br />
+
+<div id="audit-log" class="audit-log">
+    <span class="topic-heading-label">Health Checks</span>
+
+    @{
+        <div class="attribute-box boxed-area">
+            @{
+                <table class="audit-grid">
+                    <thead>
+                        <tr>
+                            <td class="sherlock-grid-header">Api Name</td>
+                            <td class="sherlock-grid-header">Result</td>
+                        </tr>
+                    </thead>
+                    @{
+                        foreach (var result in Model.ResultList)
+                        {
+                            <tr id="tr-@result.Key" class="sherlock-grid-row audit-grid-row audit-grid-row-@result.Key">
+                                <td class="audit-grid-cell">@result.Key</td>
+                                <td id="result-@result.Key" class="audit-grid-cell">@result.Value</td>
+                                <td class="audit-grid-cell">
+                                    <span id="@result.Key" class="system-ui-item system-column-widget">Run HealthCheck</span>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            }
+        </div>
+    }
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.system-ui-item').click(function () {
+                $(this).text('Running HealthCheck...');
+                var id = $(this).attr("id");
+                $.ajax({
+                    type: 'GET',
+                    cache: false,
+                    url: '/Healthcheck?webApi=' + id,
+                    success: function (result) {
+                        $('#result-' + id).text(result);
+                        $('#' + id).text('Run HealthCheck');
+                    },
+                    error: function (result) {
+                        $('#result-' + id).text('Error running health check: ' + result.responseText);
+                        $('#' + id).text('Run HealthCheck');
+                    }
+                });
+            });
+        });
+    </script>
+}
