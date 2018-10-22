@@ -15,13 +15,18 @@ namespace SystemHealthCheck.Pages
             _webProvider = new WebProvider();
         }
 
-        public JsonResult OnGet(string webApi)
+        public JsonResult OnGet(string webApi, string baseUrl)
         {
             string result;
 
+            if (!baseUrl.StartsWith("http://"))
+            {
+                baseUrl = $"http://{baseUrl}";
+            }
+
             try
             {
-                var url = $"http://local.assuranceservices.assurancesoftware.com/{webApi}";
+                var url = $"{baseUrl}/{webApi}";
 
                 result = CallHealthCheck(url);
             }

@@ -1,0 +1,232 @@
+﻿.audit-nav-option-types {
+    color: #4d5d6d;
+    float: left;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.audit-nav-type {
+    padding-right:25px;
+}
+
+.audit-nav-option-type {
+    padding-right:25px;
+}
+
+.audit-filter-options {
+    color: #4d5d6d;
+    font-size: 16px;
+    font-weight: normal;
+    margin-top:15px;
+    padding-left:0px;
+    margin-bottom:10px;
+    float: left;
+}
+
+.audit-date-time-label {
+    margin-top:15px;
+}
+
+.audit-section-first {
+}
+
+.audit-section {
+    margin-top:20px;
+}
+
+.audit-secuserid {
+    width: 100px;
+    margin-right: 40px;
+}
+
+.audit-secusername {
+    width: 300px;
+    max-width: 400px;
+}
+
+.audit-tablename {
+    width: 200px;
+    margin-right: 20px;
+}
+
+.audit-use-me-command {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.audit-secuser-or {
+    margin-right: 30px;
+}
+
+.audit-date-time {
+    width: 110px;
+    margin-right: 10px;
+}
+
+.audit-now-command {
+    cursor: pointer;
+    margin-left: 80px;
+}
+
+.audit-clear-params-command {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#audit-log-command-area {
+    padding-top: 10px;
+}
+
+.include-session-tables {
+    cursor: pointer;
+    float: left;
+    margin-left: 0px;
+}
+
+.include-session-tables-text {
+    float: left;
+    padding-top: 1px;
+    margin-left: 3px;
+}
+
+.audit-enable-triggers-command {
+    cursor: pointer;
+    float: left;
+    margin-left: 215px;
+}
+
+.audit-enable-triggers-info {
+    float: left;
+    margin-left: -135px;
+    margin-top: 7px;
+    color: green;
+    font-weight: bold;
+}
+
+.audit-show-log-command {
+    cursor: pointer;
+    float: left;
+    margin-left: 10px;
+}
+
+.audit-gen_packlet-command {
+    cursor: pointer;
+    float: left;
+    margin-left: 10px;
+}
+
+.audit-log {
+    float:left;
+}
+
+.audit-log-content-outer {
+    padding-top:15px;
+    float:left;
+    min-height:500px;
+    min-width:500px;
+}
+
+.audit-log-content {
+}
+
+.audit-grid-row {
+    cursor: pointer;
+}
+
+.audit-delta {
+    background: #DCE8ED;
+    background: linear-gradient(#DCE8ED, #DCE8ED);
+    background: -webkit-gradient(linear, left top, left bottom, from(#DCE8ED), to(#DCE8ED));
+    background: -moz-linear-gradient(top, #DCE8ED, #DCE8ED);
+    background: -ms-linear-gradient(#DCE8ED, #DCE8ED);
+    background: -o-linear-gradient(#DCE8ED, #DCE8ED);
+}
+
+.audit-log-delta {
+    float:left;
+    margin-top:10px;
+}
+
+.audit-log-delta-content {
+    position: absolute;
+    z-index: 99;
+    display: none;
+}
+
+.audit-field-section {
+    float:left;
+    margin-right:0px;
+}
+
+.audit-grid {
+    margin-top:0px;
+}
+
+.audit-detla-grid {
+    margin-top:0px;
+}
+
+.audit-grid-cell {
+    color: #4d5d6d;
+    border:0px !important;
+    font-size: 12px;
+}
+
+.audit-grid-cell-bold {
+    color: #4d5d6d;
+    border: 0px !important;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.audit-use-as-from-command {
+    cursor: pointer;
+    margin-left: 320px;
+    top: -10px;
+    position:absolute;
+}
+
+.audit-use-as-to-command {
+    cursor: pointer;
+    margin-left: 5px;
+    top: -10px;
+    position:absolute;
+}
+
+.audit-delta-use-button {
+    color: #4d5d6d;
+    font-size: 11px;
+    font-weight: bolder;
+    padding: 4px;
+    background: #ffffea;
+    background: linear-gradient(#ffffea, #9db0aa);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffea), to(#9db0aa));
+    background: -moz-linear-gradient(top, #ffffea, #9db0aa);
+    background: -ms-linear-gradient(#ffffea, #9db0aa);
+    background: -o-linear-gradient(#ffffea, #9db0aa);
+    border: 1px solid #a0acaa;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    position: relative;
+    -moz-box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+
+.spinner-icon {
+    background-image: url(/content/images/spinner.gif);
+    background-position-x: 370px;
+    background-position-y:60px;
+    background-repeat: no-repeat;
+}
+
+#hide-audit-delta {
+    float: right;
+    margin-top: 5px;
+    cursor: pointer;
+    color: #2b3b4b;
+}

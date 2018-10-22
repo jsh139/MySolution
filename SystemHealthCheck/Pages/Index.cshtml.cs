@@ -2,27 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using SystemHealthCheck.Code;
-using SystemHealthCheck.Services;
 
 namespace SystemHealthCheck.Pages
 {
     public class IndexModel : PageModel
     {
-        public Dictionary<string, string> ResultList { get; set; }
+        public Dictionary<string, string> WebApiList { get; set; }
+        public string BaseUrl { get; set; }
 
-        private readonly IWebProvider _webProvider;
         private const string NoData = "No Data";
+        private const string DefaultBaseUrl = "http://local.assuranceservices.assurancesoftware.com";
 
         public IndexModel()
         {
-            _webProvider = new WebProvider();
+            // TODO: Get from app settings
+            BaseUrl = DefaultBaseUrl;  
         }
 
         public void OnGet()
         {
-            ResultList = new Dictionary<string, string>();
+            WebApiList = new Dictionary<string, string>();
 
-            _webApiMap.ForEach(api => ResultList.Add(api.Key, NoData));
+            _webApiMap.ForEach(api => WebApiList.Add(api.Key, NoData));
         }
 
         private readonly Dictionary<string, string> _webApiMap = new Dictionary<string, string>

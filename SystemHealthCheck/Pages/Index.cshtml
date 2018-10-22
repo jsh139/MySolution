@@ -4,55 +4,74 @@
     ViewData["Title"] = "System Health Check";
 }
 
-<link rel="stylesheet" href="~/css/index.css" />
+<link rel="stylesheet" href="~/css/Sherlock.css" />
+<link rel="stylesheet" href="~/css/Audit.css" />
 
-<div class="page-heading">System Information</div>
+<div class="page-heading">Health Checks</div>
 
 <div class="clear" />
 
 <br />
 
 <div id="audit-log" class="audit-log">
-    <span class="topic-heading-label">Health Checks</span>
 
-    @{
-        <div class="attribute-box boxed-area">
+    <div class="attribute-box boxed-area">
+        <table class="audit-grid">
+            <thead>
+                <tr>
+                    <td class="sherlock-grid-header">Api Name</td>
+                    <td class="sherlock-grid-header">Result</td>
+                </tr>
+            </thead>
             @{
-                <table class="audit-grid">
-                    <thead>
-                        <tr>
-                            <td class="sherlock-grid-header">Api Name</td>
-                            <td class="sherlock-grid-header">Result</td>
-                        </tr>
-                    </thead>
-                    @{
-                        foreach (var result in Model.ResultList)
-                        {
-                            <tr id="tr-@result.Key" class="sherlock-grid-row audit-grid-row audit-grid-row-@result.Key">
-                                <td class="audit-grid-cell">@result.Key</td>
-                                <td id="result-@result.Key" class="audit-grid-cell">@result.Value</td>
-                                <td class="audit-grid-cell">
-                                    <span id="@result.Key" class="system-ui-item system-column-widget">Run HealthCheck</span>
-                                </td>
-                            </tr>
-                        }
-                    }
-                </table>
+                foreach (var webApi in Model.WebApiList)
+                {
+                    <tr id="tr-@webApi.Key" class="sherlock-grid-row audit-grid-row audit-grid-row-@webApi.Key">
+                        <td class="audit-grid-cell">@webApi.Key</td>
+                        <td id="result-@webApi.Key" class="audit-grid-cell">@webApi.Value</td>
+                        <td class="audit-grid-cell">
+                            <span id="@webApi.Key" class="system-ui-item system-column-widget">Run HealthCheck</span>
+                        </td>
+                    </tr>
+                }
             }
-        </div>
-    }
+        </table>
+    </div>
 </div>
+
+<div class="clear" />
+<br />
+
+<div id="audit-log" class="audit-log">
+    <div class="attribute-box boxed-area">
+        <table class="audit-grid">
+            <tr class="sherlock-grid-row audit-grid-row">
+                <td class="audit-grid-cell-bold">Base Url:</td>
+                <td class="audit-grid-cell">
+                    <input type="text" id="txtBaseUrl" size="300" maxlength="255" value="@Model.BaseUrl" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="clear" />
+
+<br />
 
 @section scripts {
     <script type="text/javascript">
         $(document).ready(function () {
             $('.system-ui-item').click(function () {
                 $(this).text('Running HealthCheck...');
+
                 var id = $(this).attr("id");
+                var baseUrl = $('#txtBaseUrl').val();
+
                 $.ajax({
                     type: 'GET',
                     cache: false,
-                    url: '/Healthcheck?webApi=' + id,
+                    url: '/Healthcheck?webApi=' + id + '&baseUrl=' + baseUrl,
                     success: function (result) {
                         $('#result-' + id).text(result);
                         $('#' + id).text('Run HealthCheck');
