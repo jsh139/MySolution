@@ -35,6 +35,8 @@ namespace HandyBar
 			this.addShortcutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.removeShortcutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.configureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openLocationStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyFullPathStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.topMostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -47,6 +49,7 @@ namespace HandyBar
 			this.pictureBoxInsertionBarSerif2 = new System.Windows.Forms.PictureBox();
 			this.pictureBoxInsertionBarSerif3 = new System.Windows.Forms.PictureBox();
 			this.pictureBoxInsertionBarSerif4 = new System.Windows.Forms.PictureBox();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStrip.SuspendLayout();
 			this.contextMenuStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxInsertionBar)).BeginInit();
@@ -87,6 +90,9 @@ namespace HandyBar
             this.addShortcutToolStripMenuItem,
             this.removeShortcutToolStripMenuItem,
             this.configureToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.copyFullPathStripMenuItem,
+            this.openLocationStripMenuItem,
             this.toolStripSeparator1,
             this.topMostToolStripMenuItem,
             this.toolStripSeparator2,
@@ -116,6 +122,20 @@ namespace HandyBar
 			this.configureToolStripMenuItem.Text = "Configure ...";
 			this.configureToolStripMenuItem.Click += new System.EventHandler(this.configureToolStripMenuItem_Click);
 			// 
+            // openLocationStripMenuItem
+            // 
+            this.openLocationStripMenuItem.Name = "openLocationStripMenuItem";
+            this.openLocationStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.openLocationStripMenuItem.Text = "Open Containing Folder";
+            this.openLocationStripMenuItem.Click += new System.EventHandler(this.openLocationStripMenuItem_Click);
+            // 
+            // copyFullPathStripMenuItem
+            // 
+            this.copyFullPathStripMenuItem.Name = "copyFullPathStripMenuItem";
+            this.copyFullPathStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.copyFullPathStripMenuItem.Text = "Copy Full Path";
+            this.copyFullPathStripMenuItem.Click += new System.EventHandler(this.copyFullPathStripMenuItem_Click);
+            // 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -205,6 +225,11 @@ namespace HandyBar
 			this.pictureBoxInsertionBarSerif4.TabIndex = 11;
 			this.pictureBoxInsertionBarSerif4.TabStop = false;
 			// 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(162, 6);
+            // 
 			// Form1
 			// 
 			this.AllowDrop = true;
@@ -274,6 +299,9 @@ namespace HandyBar
 		private System.Windows.Forms.PictureBox pictureBoxInsertionBarSerif2;
 		private System.Windows.Forms.PictureBox pictureBoxInsertionBarSerif3;
 		private System.Windows.Forms.PictureBox pictureBoxInsertionBarSerif4;
+        private System.Windows.Forms.ToolStripMenuItem openLocationStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyFullPathStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 	}
 }
 

@@ -889,9 +889,38 @@ namespace HandyBar
         {
 			//Opacity = _SaveOpacity;
         }
-	}
 
-	public class HandyBarDragItem
+        private void openLocationStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_SelectedButton != null)
+            {
+                var shortcut = (Shortcut)_SelectedButton.Tag;
+                var folder = Path.GetDirectoryName(shortcut.Filename);
+
+                var processInfo = new ProcessStartInfo($"{Environment.ExpandEnvironmentVariables("%WINDIR%")}\\Explorer.exe", folder)
+                {
+                    UseShellExecute = false,
+                };
+                Process.Start(processInfo);
+
+                _SelectedButton = null;
+            }
+        }
+
+        private void copyFullPathStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_SelectedButton != null)
+            {
+                var shortcut = (Shortcut)_SelectedButton.Tag;
+
+                Clipboard.SetText(shortcut.Filename);
+
+                _SelectedButton = null;
+            }
+        }
+    }
+
+    public class HandyBarDragItem
 	{
 		public string DragFormat
 		{
