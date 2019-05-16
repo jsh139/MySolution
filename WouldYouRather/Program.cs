@@ -43,7 +43,7 @@ namespace WouldYouRather
             {
                 using (var sr = new StreamReader(stream))
                 {
-                    lines = sr.ReadToEnd().Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+                    lines = sr.ReadToEnd().Split('\n');
                 }
             }
 

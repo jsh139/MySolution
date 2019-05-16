@@ -43,6 +43,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemHealthCheck", "System
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WouldYouRather", "WouldYouRather\WouldYouRather.csproj", "{0D11BD80-B4AB-454D-B3DF-12413D681E83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TokenGenerator", "TokenGenerator\TokenGenerator.csproj", "{79C80EC3-6D25-45BB-90CE-27547EB24568}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -128,6 +130,10 @@ Global
 		{0D11BD80-B4AB-454D-B3DF-12413D681E83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D11BD80-B4AB-454D-B3DF-12413D681E83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D11BD80-B4AB-454D-B3DF-12413D681E83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79C80EC3-6D25-45BB-90CE-27547EB24568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79C80EC3-6D25-45BB-90CE-27547EB24568}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79C80EC3-6D25-45BB-90CE-27547EB24568}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79C80EC3-6D25-45BB-90CE-27547EB24568}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
