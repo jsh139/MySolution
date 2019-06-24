@@ -2,12 +2,14 @@
 using Assurance.ApiClients.Security.Client;
 using Assurance.ApiClients.Security.Model;
 using System;
+using System.Windows.Forms;
 using AuthApiConfiguration = Assurance.ApiClients.Security.Client.Configuration;
 
 namespace TokenGenerator
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
             var userName = "josh.hoffman@assurancesoftware.com";
@@ -30,6 +32,10 @@ namespace TokenGenerator
             var token = GetToken(userName, password, vanity);
 
             Console.WriteLine($"Bearer {token.AccessToken}");
+
+            Clipboard.SetText($"Bearer {token.AccessToken}");
+
+            Console.WriteLine("Copied to Clipboard.");
         }
 
         private static AssuranceTokens GetToken(string userName, string password, string vanity)
