@@ -895,9 +895,9 @@ namespace HandyBar
             if (_SelectedButton != null)
             {
                 var shortcut = (Shortcut)_SelectedButton.Tag;
-                var folder = Path.GetDirectoryName(shortcut.Filename);
+                var args = $"/select, \"{shortcut.Filename}\"";
 
-                var processInfo = new ProcessStartInfo($"{Environment.ExpandEnvironmentVariables("%WINDIR%")}\\Explorer.exe", folder)
+                var processInfo = new ProcessStartInfo($"{Environment.ExpandEnvironmentVariables("%WINDIR%")}\\Explorer.exe", args)
                 {
                     UseShellExecute = false,
                 };

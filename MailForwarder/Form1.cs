@@ -254,7 +254,7 @@ namespace MailForwarder
 
 		private void CheckMail()
 		{
-			ApplicationClass myOlApp = new ApplicationClass();
+			var myOlApp = new Microsoft.Office.Interop.Outlook.Application();
 			NameSpace newNS = myOlApp.GetNamespace("MAPI");
 			MAPIFolder mapi1 = newNS.GetDefaultFolder(OlDefaultFolders.olFolderInbox);
 
