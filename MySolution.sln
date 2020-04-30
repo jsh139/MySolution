@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection", "DependencyInjection\DependencyInjection.csproj", "{1ED2CC2B-99EC-44D3-9C8D-2CB1D64C29FB}"
 EndProject
@@ -44,6 +44,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WouldYouRather", "WouldYouRather\WouldYouRather.csproj", "{0D11BD80-B4AB-454D-B3DF-12413D681E83}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TokenGenerator", "TokenGenerator\TokenGenerator.csproj", "{79C80EC3-6D25-45BB-90CE-27547EB24568}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleaningProductExercise", "CleaningProductExercise\CleaningProductExercise.csproj", "{14BE2A43-9E02-4B7D-9A67-384E3A0CE2C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -134,6 +136,10 @@ Global
 		{79C80EC3-6D25-45BB-90CE-27547EB24568}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79C80EC3-6D25-45BB-90CE-27547EB24568}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79C80EC3-6D25-45BB-90CE-27547EB24568}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14BE2A43-9E02-4B7D-9A67-384E3A0CE2C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14BE2A43-9E02-4B7D-9A67-384E3A0CE2C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14BE2A43-9E02-4B7D-9A67-384E3A0CE2C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14BE2A43-9E02-4B7D-9A67-384E3A0CE2C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
