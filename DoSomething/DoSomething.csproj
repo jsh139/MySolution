@@ -34,14 +34,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core">
-      <HintPath>..\..\..\..\..\..\git\GIT_Assurance\DEV\lib\Castle.Core.dll</HintPath>
+    <Reference Include="Castle.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\git\DEV\bin\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Windsor">
-      <HintPath>..\..\..\..\..\..\git\GIT_Assurance\DEV\lib\Castle.Windsor.dll</HintPath>
+    <Reference Include="Castle.Windsor, Version=3.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\git\DEV\bin\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PushSharp.Amazon, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
       <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Amazon.dll</HintPath>
@@ -64,8 +66,9 @@
     <Reference Include="PushSharp.Windows, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
       <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Windows.dll</HintPath>
     </Reference>
-    <Reference Include="SunGardAS">
-      <HintPath>..\..\..\..\..\..\git\GIT_Assurance\DEV\bin\SunGardAS.dll</HintPath>
+    <Reference Include="SunGardAS, Version=4.0.0.4, Culture=neutral, PublicKeyToken=d74721e3b8c7ade6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\git\DEV\bin\SunGardAS.dll</HintPath>
     </Reference>
     <Reference Include="SungardAS.ApiClients.Scheduler">
       <HintPath>..\..\..\..\..\..\git\GIT_Assurance\DEV\bin\SungardAS.ApiClients.Scheduler.dll</HintPath>
@@ -76,11 +79,13 @@
     <Reference Include="SunGardAS.ApiClients.Shared">
       <HintPath>..\..\..\..\..\..\git\GIT_Assurance\DEV\bin\SunGardAS.ApiClients.Shared.dll</HintPath>
     </Reference>
-    <Reference Include="SunGardAS.CMS.Domain">
-      <HintPath>..\..\..\..\..\..\git\GIT_Assurance\DEV\bin\SunGardAS.CMS.Domain.dll</HintPath>
+    <Reference Include="SunGardAS.CMS.Domain, Version=4.0.0.4, Culture=neutral, PublicKeyToken=d74721e3b8c7ade6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\git\DEV\bin\SunGardAS.CMS.Domain.dll</HintPath>
     </Reference>
-    <Reference Include="SunGardAS.CMS.Service">
-      <HintPath>..\..\..\..\..\..\git\GIT_Assurance\DEV\bin\SunGardAS.CMS.Service.dll</HintPath>
+    <Reference Include="SunGardAS.CMS.Service, Version=4.0.0.4, Culture=neutral, PublicKeyToken=d74721e3b8c7ade6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\git\DEV\bin\SunGardAS.CMS.Service.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
