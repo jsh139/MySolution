@@ -47,6 +47,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TokenGenerator", "TokenGene
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleaningProductExercise", "CleaningProductExercise\CleaningProductExercise.csproj", "{14BE2A43-9E02-4B7D-9A67-384E3A0CE2C9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCoreApp", "TestCoreApp\TestCoreApp.csproj", "{91FF1B42-9A1E-40AD-A79C-0C97084CC753}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net5Library", "NetStandardLibrary\Net5Library.csproj", "{7DBF1BF7-DB6F-41F5-BB25-090A387D3582}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -140,6 +144,14 @@ Global
 		{14BE2A43-9E02-4B7D-9A67-384E3A0CE2C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14BE2A43-9E02-4B7D-9A67-384E3A0CE2C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14BE2A43-9E02-4B7D-9A67-384E3A0CE2C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91FF1B42-9A1E-40AD-A79C-0C97084CC753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91FF1B42-9A1E-40AD-A79C-0C97084CC753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91FF1B42-9A1E-40AD-A79C-0C97084CC753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91FF1B42-9A1E-40AD-A79C-0C97084CC753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DBF1BF7-DB6F-41F5-BB25-090A387D3582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DBF1BF7-DB6F-41F5-BB25-090A387D3582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DBF1BF7-DB6F-41F5-BB25-090A387D3582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DBF1BF7-DB6F-41F5-BB25-090A387D3582}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
