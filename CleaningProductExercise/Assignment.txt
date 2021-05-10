@@ -1,0 +1,31 @@
+﻿Attached you will find a file CleaningProducts.json containing JSON data with the following fields:
+
+- RegistrationId (text)
+- ActiveIngredients (list of text)
+- ProductName (text)
+- VirusesKilled (list of text)
+- ContactTime (text)
+
+Write code to read in the file, perform validation on each row, and then output the good data into a CSV file and the bad data into a separate file.
+
+These are the Validation rules:
+
+- RegistrationId cannot be blank
+- RegistrationId must be unique (if two or more products have the same RegistrationId, then they are BOTH invalid)
+- ContactTime must be a valid number and also cannot be blank
+
+If any of these conditions is not met, the entire product is invalid
+
+Transform and sort the valid product data into comma-separated fields with headers and output to GoodData.csv
+
+This is the structure of the GoodData CSV file:
+
+- RegistrationId: (as-is)
+- ActiveIngredients: Flatten the active ingredients into a semi-colon delimited list so that it fits into one field in the CSV file
+- ProductName: (as-is)
+- VirusesKilled: Flatten the viruses killed into a semi-colon delimited list so that it fits into one field in the CSV file
+- ContactTime: Whole integer only. Must be rounded UP to the closest integer if it is a decimal
+
+- Before outputting, sort the data by ContactTime, and then by ProductName
+
+For the invalid data, just write it as-is into BadData.json, no need to convert it
