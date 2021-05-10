@@ -114,6 +114,5 @@ namespace CleaningProductExercise.Tests
                 VirusesKilled = new List<string>(),
             };
         }
-
     }
 }
