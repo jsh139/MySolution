@@ -12,9 +12,15 @@ namespace TokenGenerator
         [STAThread]
         static void Main(string[] args)
         {
-            var userName = "josh.hoffman@assurancesoftware.com";
+            var userName = "josh.hoffman@castellanbc.com";
             var password = "P@ssword1";
             var vanity = "ldrps";
+
+            if (args.Length > 0 && args[0] == "/?")
+            {
+                Console.WriteLine("Usage: TokenGenerator.exe [Username] [Password] [VanityId]");
+                return;
+            }
 
             if (args.Length > 1)
             {
