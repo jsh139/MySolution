@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30011.22
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection", "DependencyInjection\DependencyInjection.csproj", "{1ED2CC2B-99EC-44D3-9C8D-2CB1D64C29FB}"
 EndProject
@@ -51,7 +51,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCoreApp", "TestCoreApp\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net5Library", "NetStandardLibrary\Net5Library.csproj", "{7DBF1BF7-DB6F-41F5-BB25-090A387D3582}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abcPDFTest", "abcPDFTest\abcPDFTest.csproj", "{E44F9909-C28A-4B23-8B03-D66A16629F7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "abcPDFTest", "abcPDFTest\abcPDFTest.csproj", "{E44F9909-C28A-4B23-8B03-D66A16629F7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppExercise", "WebAppExercise\WebAppExercise.csproj", "{0756DA39-3899-4B83-8BF4-3D18AD517C87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -158,6 +160,10 @@ Global
 		{E44F9909-C28A-4B23-8B03-D66A16629F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E44F9909-C28A-4B23-8B03-D66A16629F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E44F9909-C28A-4B23-8B03-D66A16629F7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0756DA39-3899-4B83-8BF4-3D18AD517C87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0756DA39-3899-4B83-8BF4-3D18AD517C87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0756DA39-3899-4B83-8BF4-3D18AD517C87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0756DA39-3899-4B83-8BF4-3D18AD517C87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,52 @@
+[
+    {
+        "FirstName": "John",
+        "LastName": "Smith",
+        "Address": "123 Anywhere St.",
+        "City": "Philadelphia",
+        "State": "PA",
+        "ZipCode": "19101",
+        "SSN": "123-45-6789",
+        "Age": 35
+    },
+    {
+        "FirstName": "Jane",
+        "LastName": "Smith",
+        "Address": "123 Anywhere St.",
+        "City": "Philadelphia",
+        "State": "PA",
+        "ZipCode": "19101",
+        "SSN": "456-12-3455",
+        "Age": 37
+    },
+    {
+        "FirstName": "Joe",
+        "LastName": "Blow",
+        "Address": "456 Anywhere St.",
+        "City": "Camden",
+        "State": "NJ",
+        "ZipCode": "08425",
+        "SSN": "456-33-3355",
+        "Age": 45
+    },
+    {
+        "FirstName": "Jack",
+        "LastName": "Franklin",
+        "Address": "77890 Anywhere St.",
+        "City": "Milwaukee",
+        "State": "WI",
+        "ZipCode": "24101",
+        "SSN": "786-22-4589",
+        "Age": 75
+    },
+    {
+        "FirstName": "Jill",
+        "LastName": "Hartgrove",
+        "Address": "12-987 Anywhere St.",
+        "City": "Los Angeles",
+        "State": "CA",
+        "ZipCode": "90210",
+        "SSN": "221-56-2229",
+        "Age": 23
+    }
+]
